@@ -5,8 +5,29 @@
 </template>
 
 <script>
+import { mapState, mapGetters } from 'vuex';
 
 export default {
 
+  computed: {
+    ...mapState([
+      'playlists',
+    ]),
+    ...mapGetters([
+      'playing',
+    ]),
+  },
+  mounted() {
+    this.getplaylists();
+    this.getplaying();
+  },
+  methods: {
+    getplaylists() {
+      console.log('playlists', this.playlists);
+    },
+    getplaying() {
+      console.log('playing', this.playing);
+    },
+  },
 };
 </script>
