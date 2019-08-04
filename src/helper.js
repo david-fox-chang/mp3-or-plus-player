@@ -64,6 +64,7 @@ const defaultList = defaultListNames.map(
     item,
     getRandomListId.next().value,
     { length: lenToSec(item.length) },
+    { followed: false },
   ),
 );
 
