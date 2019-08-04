@@ -11,6 +11,7 @@ export default new Vuex.Store({
     player: {
       timeLine: undefined,
       timer: undefined,
+      music: helper.defaultList[0],
     },
   },
   getters: {
