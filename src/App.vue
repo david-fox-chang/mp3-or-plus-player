@@ -1,41 +1,24 @@
 <template>
   <div id="app">
-    <player-component
-      v-if="showPlayer || 1"
-    ></player-component>
+    <player-component></player-component>
     <playlist-component
-      v-if="show.playlist"
+      v-if="0 && showPlaylist"
     ></playlist-component>
-    <ad-component
-      v-if="show.ad"
-    ></ad-component>
   </div>
 </template>
 
 <script>
-import AD from './views/Ad.vue';
-import Player from './views/Player.vue'
-import PlayList from './views/PlayList.vue'
+import Player from './views/Player.vue';
+import PlayList from './views/PlayList.vue';
 
 export default {
   components: {
-    'ad-component': AD,
     'player-component': Player,
     'playlist-component': PlayList,
   },
   data: () => ({
-    show: {
-      ad: true,
-      playlist: true,
-    },
+    showPlaylist: true,
   }),
-  computed: {
-    showPlayer: {
-      get() {
-        return !this.show.playlist;
-      },
-    },
-  },
 };
 </script>
 
