@@ -5,19 +5,23 @@ const getHash = (name) => {
   ), 0);
 };
 
-const getRandomId = (len = 8) => {
+const random = (max, min = 0) => Math.floor(Math.random() * (max - min));
+
+const RANDOM_ID_LEN = 32;
+
+const getRandomId = (len = RANDOM_ID_LEN) => {
   const dic = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
   const dicMaxInd = dic.length - 1;
   let ans = '';
   for (let i = 0; i < len; i += 1) {
-    ans += dic[Math.random() * dicMaxInd];
+    ans += dic[random(dicMaxInd)];
   }
 
   return ans;
 };
 
 // eslint-disable-next-line func-names
-const genGetRandomListId = function* (len = 8, start = 0) {
+const genGetRandomListId = function* (len = RANDOM_ID_LEN, start = 0) {
   let i = start;
   while (true) {
     yield { id: i += 1, randomId: getRandomId(len) };
