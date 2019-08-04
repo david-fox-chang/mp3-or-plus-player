@@ -22,7 +22,7 @@ export default new Router({
       component: Player,
       children: [
         { path: '', name: 'none-play', props: true },
-        { path: ':songId', name: 'player', props: route => ({ query: route.params }) },
+        { path: ':songId', name: 'player', props: true },
       ],
     },
   ],
