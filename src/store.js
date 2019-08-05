@@ -10,7 +10,7 @@ export default new Vuex.Store({
     playlists: helper.defaultList,
     player: {
       timeLine: undefined,
-      timer: undefined,
+      timer: 0,
       music: helper.defaultList[0],
     },
   },
@@ -21,10 +21,10 @@ export default new Vuex.Store({
   },
   mutations: {
     [PLAYER_TIME](state, payload) {
-      state.player.timeLine += payload.deltaTime;
+      state.player.timeLine = payload.timer;
     },
     [PLAYER_TIMER](state, payload) {
-      state.player.timer += payload.deltaTime;
+      state.player.timer = payload.timer;
     },
     [PLAYER_COUNT_DOWN](state, payload) {
       state.commit(PLAYER_TIME, payload);
