@@ -1,8 +1,13 @@
 <template>
   <div id="app">
-    <player-component></player-component>
+    <player-component
+      @show-list="showPlaylist = true"
+      v-if="!showPlaylist"
+    ></player-component>
     <playlist-component
-      v-if="0 && showPlaylist"
+      @close-list="showPlaylist = false"
+      v-if="showPlaylist"
+      class="playlist"
     ></playlist-component>
   </div>
 </template>
@@ -38,5 +43,12 @@ export default {
   margin-right: auto;
   margin-left: auto;
   .line-tmp();
+}
+
+.playlist {
+  width: 100%;
+  height: 100%;
+  padding-left: 30px;
+  padding-right: $padding-left;
 }
 </style>
